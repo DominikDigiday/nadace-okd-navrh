@@ -8,134 +8,241 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="hdr">
-  <div class="wrap hdr-in">
-    <a class="brand" href="index.html">
-      <img src="img/logo.png" alt="Nadace OKD" height="44">
-    </a>
-    <nav class="nav"><a href="nadace-okd/o-nadaci.html">Nadace OKD</a>
-<a href="granty.html">Granty</a>
-<a href="podporene-projekty.html">Podpořené projekty</a>
-<a href="novinky.html">Aktuality</a>
-<a href="ke-stazeni.html">Ke stažení</a>
-<a href="kontakty.html">Kontakty</a></nav>
-    <a class="btn btn-sm" href="granty/jak-pozadat-o-grant.html">Chci grant</a>
-    <button class="burger" aria-label="Menu">&#9776;</button>
+<header id="site-header">
+  <div id="header-fixed">
+    <div class="container">
+      <div class="header-row">
+        <a id="logo" href="index.html"><img src="img/logo.png" alt="Nadace OKD"></a>
+        <ul class="nav main-menu">
+<li class="menu-item"><a href="nadace-okd/o-nadaci.html" class="nav-link">Nadace OKD</a></li>
+<li class="menu-item"><a href="granty.html" class="nav-link">Granty</a></li>
+<li class="menu-item"><a href="podporene-projekty.html" class="nav-link">Podpořené projekty</a></li>
+<li class="menu-item"><a href="novinky.html" class="nav-link">Aktuality</a></li>
+<li class="menu-item"><a href="ke-stazeni.html" class="nav-link">Ke stažení</a></li>
+<li class="menu-item"><a href="kontakty.html" class="nav-link">Kontakty</a></li>
+<li class="button menu-item"><a href="granty/jak-pozadat-o-grant.html" class="nav-link">Chci grant</a></li>
+        </ul>
+        <div id="main-menu-toggler"><span></span><span></span><span></span></div>
+      </div>
+    </div>
   </div>
 </header>
+<div id="expanded-menu">
+  <ul>
+<li class="menu-item"><a href="nadace-okd/o-nadaci.html">Nadace OKD</a></li>
+<li class="menu-item"><a href="granty.html">Granty</a></li>
+<li class="menu-item"><a href="podporene-projekty.html">Podpořené projekty</a></li>
+<li class="menu-item"><a href="novinky.html">Aktuality</a></li>
+<li class="menu-item"><a href="ke-stazeni.html">Ke stažení</a></li>
+<li class="menu-item"><a href="kontakty.html">Kontakty</a></li>
+<li class="menu-item"><a href="granty/jak-pozadat-o-grant.html">Chci grant</a></li>
+  </ul>
+</div>
+<div id="header-spacer"></div>
 
-<section class="ph">
-  <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Úvod</a> / Aktuality</nav>
-    <h1>Aktuality</h1>
+<section>
+  <div class="container" id="header-carousel">
+    <div id="introCarousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active"><img src="img/hero-1.jpg" alt="Nadace OKD"></div>
+        <div class="carousel-item"><img src="img/hero-2.jpg" alt="Nadace OKD"></div>
+        <div class="carousel-item"><img src="img/hero-3.jpg" alt="Nadace OKD"></div>
+      </div>
+      <button class="carousel-control-prev" type="button" aria-label="Předchozí">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" aria-label="Další">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <div class="header-pages">
+      <a class="page-box" href="granty/grantove-programy/nadace-okd-obcim.html">
+        <img src="img/ico-obcim.svg" alt="Nadace OKD obcím">
+        <h2>Nadace OKD obcím</h2>
+        <p>Podpora obcí zasažených důlní činností.</p>
+      </a>
+      <a class="page-box" href="granty/grantove-programy/pro-region.html">
+        <img src="img/ico-region.svg" alt="Pro region">
+        <h2>Pro region</h2>
+        <p>Granty pro neziskové organizace v Moravskoslezském kraji.</p>
+      </a>
+      <a class="page-box" href="granty/grantove-programy/srdcovka.html">
+        <img src="img/ico-srdcovka.svg" alt="Srdcovka">
+        <h2>Srdcovka</h2>
+        <p>Program pro zaměstnance dárců, kteří pomáhají ve svém okolí.</p>
+      </a>
+    </div>
   </div>
 </section>
-<section class="sec">
-  <div class="wrap"><div class="news">
-      <a class="np" href="novinky/vyrocni-zprava-za-rok-2025.html">
-        <span class="np-date">8. 6. 2026</span>
-        <h3>Novinky</h3>
-        <p>Výroční zpráva za rok 2025 8.6.2026 Výroční zpráva za rok 2025 je na světě! Výroční zpráva obsahuje podrobný přehled aktivit nadace, přináší…</p>
-      </a>
-      <a class="np" href="novinky/nadace-okd-bude-opet-regionu-pomahat.html">
-        <span class="np-date">7. 12. 2017</span>
-        <h3>Novinky</h3>
-        <p>Nadace OKD bude regionu opět pomáhat 7.12.2017 Nová grantová výzva Nadace OKD na rok 2018 je spuštěna. Program Pro region se jako každý rok bude…</p>
-      </a>
-      <a class="np" href="novinky/nastrahy-velkomesta.html">
-        <span class="np-date">4. 5. 2026</span>
-        <h3>Novinky</h3>
-        <p>Karviňáci se potýkali s Nástrahami velkoměsta 4.5.2026 V současné době čelí rodiny téměř denně náročným situacím, ve kterých může nedostatečná…</p>
-      </a>
-      <a class="np" href="novinky/nadace-letos-podpori-135-projektu.html">
-        <span class="np-date">4. 3. 2026</span>
-        <h3>Novinky</h3>
-        <p>Nadace letos podpoří 135 projektů! 4.3.2026 KARVINÁ (4. březen 2026) - Nadace OKD podpoří celkovou částkou přesahující 9 miliónů korun 135…</p>
-      </a>
-      <a class="np" href="novinky/nadace-bude-pomahat-i-v-roce-2026.html">
-        <span class="np-date">4. 12. 2025</span>
-        <h3>Novinky</h3>
-        <p>Nadace bude pomáhat i v roce 2026 4.12.2025 KARVINÁ (4. prosinec 2025) – Nadace OKD spustí 4. prosince 2025 příjem žádostí v programu Pro region a…</p>
-      </a>
-      <a class="np" href="novinky/nadace-bude-pomahat-i-v-roce-2025.html">
-        <span class="np-date">4. 12. 2024</span>
-        <h3>Novinky</h3>
-        <p>Nadace bude pomáhat i v roce 2025 4.12.2024 KARVINÁ (4. prosinec 2024) – Nadace OKD spustí 4. prosince 2024 příjem žádostí v programu Pro region a…</p>
-      </a>
-      <a class="np" href="novinky/horni-sucha-revitalizuje-detska-hriste.html">
-        <span class="np-date">20. 3. 2026</span>
-        <h3>Novinky</h3>
-        <p>Horní Suchá revitalizuje dětská hřiště 20.3.2026 Horní Suchá se dočkala výrazného vylepšení míst pro trávení volného času. Hlavním cílem plánované…</p>
-      </a>
-      <a class="np" href="novinky/pozor-mame-nefunkcni-emaily.html">
-        <span class="np-date">11. 6. 2026</span>
-        <h3>Novinky</h3>
-        <p>Pozor, máme nefunkční emaily! 11.6.2026 Naše emaily nemcova@nadaceokd.cz a balcikova@nadaceokd.cz jsou dočasně mimo provoz! Kontaktujte nás prosím…</p>
-      </a>
-      <a class="np" href="novinky/podporujeme-rust-krasobruslarskych-talentu.html">
-        <span class="np-date">1. 6. 2026</span>
-        <h3>Novinky</h3>
-        <p>Podporujeme růst krasobruslařských talentů 1.6.2026 V rámci našich dlouhodobých aktivit se snažíme podporovat projekty, které mají skutečný smysl a…</p>
-      </a>
-      <a class="np" href="novinky/nadace-letos-podpori-139-projektu.html">
-        <span class="np-date">1. 3. 2025</span>
-        <h3>Novinky</h3>
-        <p>Nadace letos podpoří 139 projektů! 1.3.2025 KARVINÁ (1. březen 2025) - Nadace OKD podpoří 139 neziskových projektů v našem regionu celkovou částkou 9…</p>
-      </a>
-      <a class="np" href="novinky/srdcovka-je-tady-pro-vas-i-v-roce-2018.html">
-        <span class="np-date">1. 12. 2017</span>
-        <h3>Novinky</h3>
-        <p>Srdcovka je tady pro vás i v roce 2018 1.12.2017 Jako každý rok u příležitosti oslav patronky havířů svaté Barbory, vyhlašujeme minigrant Srdcovka…</p>
-      </a>
-      <a class="np" href="novinky/nadace-okd-zve-deti-z-karvinska-na-golfovou-akademii-hlavne.html">
-        <span class="np-date"></span>
-        <h3>Novinky</h3>
-        <p>Nadace OKD zve děti z Karvinska na Golfovou akademii. Hlavně nováčky. 4.4.2013 Ostrava (4. dubna 2012) – Na golfovém hřišti v karvinských Lipinách…</p>
-      </a>
-      <a class="np" href="novinky/obce-ovlivnene-tezbou-ziskaly-od-nadace-okd-20-milionu-korun.html">
-        <span class="np-date"></span>
-        <h3>Novinky</h3>
-        <p>Obce ovlivněné těžbou získaly od Nadace OKD 20 milionů korun. Postaví skatepark, inhalatoria i hřiště 11.11.2024 STONAVA, 8. listopadu 2024 – 20,1…</p>
-      </a>
-      <a class="np" href="novinky/okd-opet-venuje-nadaci-okd-mimoradny-dar-ze-zisku-pujde-mestum.html">
-        <span class="np-date"></span>
-        <h3>Novinky</h3>
-        <p>OKD opět věnuje Nadaci OKD mimořádný dar ze zisku. Půjde městům a obcím ovlivněným těžbou 1.7.2024 STONAVA, 1. července 2024 – Podobně jako loni…</p>
-      </a>
-  </div></div>
-</section>
 
-<footer class="ftr">
-  <div class="wrap ftr-in">
-    <div>
-      <img src="img/logo.png" alt="Nadace OKD" height="40" class="ftr-logo">
-      <p class="ftr-adr">Karola Śliwky 149/17<br>733 01 Karviná &ndash; Fryštát<br>
-      <a href="mailto:info@nadaceokd.cz">info@nadaceokd.cz</a></p>
-    </div>
-    <div>
-      <h4>Granty</h4>
-      <a href="granty/grantove-programy/nadace-okd-obcim.html">Nadace OKD obcím</a>
-      <a href="granty/grantove-programy/pro-region.html">Pro region</a>
-      <a href="granty/grantove-programy/srdcovka.html">Srdcovka</a>
-      <a href="granty/jak-pozadat-o-grant.html">Jak požádat o grant</a>
-    </div>
-    <div>
-      <h4>Nadace</h4>
-      <a href="nadace-okd/o-nadaci.html">O nadaci</a>
-      <a href="nadace-okd/spravni-a-dozorci-rada-nadace.html">Správní a dozorčí rada</a>
-      <a href="nadace-okd/vyrocni-zpravy.html">Výroční zprávy</a>
-      <a href="nadace-okd/statut-nadace.html">Statut nadace</a>
-    </div>
+<main>
+  <section id="content" class="main-content">
+    <div class="container">
+      <div class="content-col">
+
+<div id="breadcrumbs"><a href="index.html">Úvod</a><span class="breadcumb-separator">›</span><span class="breadcrumb_last">Aktuality</span></div>
+<div class="section moved">
+  <p class="subtitle text-center">Nadace OKD</p>
+  <h1 class="text-center"><em>Aktuality</em></h1>
+  <div class="slides mt-5">
+      <a class="slide" href="novinky/pozor-mame-nefunkcni-emaily.html">
+        <span class="date">11. 6. 2026</span>
+        <h3>Pozor, máme nefunkční emaily!</h3>
+        <p>11.6.2026 Naše emaily nemcova@nadaceokd.cz a balcikova@nadaceokd.cz jsou dočasně mimo provoz! Kontaktujte nás prosím zde: nadaceokd@gmail.com…</p>
+      </a>
+      <a class="slide" href="novinky/vyrocni-zprava-za-rok-2025.html">
+        <span class="date">8. 6. 2026</span>
+        <h3>Výroční zpráva za rok 2025</h3>
+        <p>8.6.2026 Výroční zpráva za rok 2025 je na světě! Výroční zpráva obsahuje podrobný přehled aktivit nadace, přináší kompletní seznam podpořených…</p>
+      </a>
+      <a class="slide" href="novinky/podporujeme-rust-krasobruslarskych-talentu.html">
+        <span class="date">1. 6. 2026</span>
+        <h3>Podporujeme růst krasobruslařských talentů</h3>
+        <p>1.6.2026 V rámci našich dlouhodobých aktivit se snažíme podporovat projekty, které mají skutečný smysl a pomáhají sportovcům dosahovat jejich cílů, a…</p>
+      </a>
+      <a class="slide" href="novinky/nastrahy-velkomesta.html">
+        <span class="date">4. 5. 2026</span>
+        <h3>Karviňáci se potýkali s Nástrahami velkoměsta</h3>
+        <p>4.5.2026 V současné době čelí rodiny téměř denně náročným situacím, ve kterých může nedostatečná komunikace či vzájemná netolerance vést až k jejich…</p>
+      </a>
+      <a class="slide" href="novinky/horni-sucha-revitalizuje-detska-hriste.html">
+        <span class="date">20. 3. 2026</span>
+        <h3>Horní Suchá revitalizuje dětská hřiště</h3>
+        <p>20.3.2026 Horní Suchá se dočkala výrazného vylepšení míst pro trávení volného času. Hlavním cílem plánované revitalizace bylo zajistit dětem…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-letos-podpori-135-projektu.html">
+        <span class="date">4. 3. 2026</span>
+        <h3>Nadace letos podpoří 135 projektů!</h3>
+        <p>4.3.2026 KARVINÁ (4. březen 2026) - Nadace OKD podpoří celkovou částkou přesahující 9 miliónů korun 135 neziskových projektů v našem regionu. Žádostí…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-bude-pomahat-i-v-roce-2026.html">
+        <span class="date">4. 12. 2025</span>
+        <h3>Nadace bude pomáhat i v roce 2026</h3>
+        <p>4.12.2025 KARVINÁ (4. prosinec 2025) – Nadace OKD spustí 4. prosince 2025 příjem žádostí v programu Pro region a také minigrantový program Srdcovka…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-letos-podpori-139-projektu.html">
+        <span class="date">1. 3. 2025</span>
+        <h3>Nadace letos podpoří 139 projektů!</h3>
+        <p>1.3.2025 KARVINÁ (1. březen 2025) - Nadace OKD podpoří 139 neziskových projektů v našem regionu celkovou částkou 9 358 000 Kč. Žádostí v programu Pro…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-bude-pomahat-i-v-roce-2025.html">
+        <span class="date">4. 12. 2024</span>
+        <h3>Nadace bude pomáhat i v roce 2025</h3>
+        <p>4.12.2024 KARVINÁ (4. prosinec 2024) – Nadace OKD spustí 4. prosince 2024 příjem žádostí v programu Pro region a také minigrantový program Srdcovka…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-okd-bude-opet-regionu-pomahat.html">
+        <span class="date">7. 12. 2017</span>
+        <h3>Nadace OKD bude regionu opět pomáhat</h3>
+        <p>7.12.2017 Nová grantová výzva Nadace OKD na rok 2018 je spuštěna. Program Pro region se jako každý rok bude zaměřovat na děti, seniory i…</p>
+      </a>
+      <a class="slide" href="novinky/srdcovka-je-tady-pro-vas-i-v-roce-2018.html">
+        <span class="date">1. 12. 2017</span>
+        <h3>Srdcovka je tady pro vás i v roce 2018</h3>
+        <p>1.12.2017 Jako každý rok u příležitosti oslav patronky havířů svaté Barbory, vyhlašujeme minigrant Srdcovka 2018, určený všem zaměstnancům OKD a.s.,…</p>
+      </a>
+      <a class="slide" href="novinky/nadace-okd-zve-deti-z-karvinska-na-golfovou-akademii-hlavne.html">
+        <span class="date"></span>
+        <h3>Nadace OKD zve děti z Karvinska na Golfovou akademii. Hlavně nováčky.</h3>
+        <p>4.4.2013 Ostrava (4. dubna 2012) – Na golfovém hřišti v karvinských Lipinách budou v příštích měsících k vidění nejen výkony zkušených hráčů, ale…</p>
+      </a>
+      <a class="slide" href="novinky/obce-ovlivnene-tezbou-ziskaly-od-nadace-okd-20-milionu-korun.html">
+        <span class="date"></span>
+        <h3>Obce ovlivněné těžbou získaly od Nadace OKD 20 milionů korun. Postaví skatepark, inhalatoria i hřiště</h3>
+        <p>11.11.2024 STONAVA, 8. listopadu 2024 – 20,1 milionu korun z mimořádného finančního daru, který Nadaci OKD věnovala ze svého zisku společnost OKD,…</p>
+      </a>
+      <a class="slide" href="novinky/okd-opet-venuje-nadaci-okd-mimoradny-dar-ze-zisku-pujde-mestum.html">
+        <span class="date"></span>
+        <h3>OKD opět věnuje Nadaci OKD mimořádný dar ze zisku. Půjde městům a obcím ovlivněným těžbou</h3>
+        <p>1.7.2024 STONAVA, 1. července 2024 – Podobně jako loni poskytne těžební společnost OKD ze svého zisku mimořádný dar Nadaci OKD. Finanční dar ve výši…</p>
+      </a>
   </div>
-  <div class="wrap ftr-bot">
-    <span>&copy; Nadace OKD</span>
-    <span class="ftr-note">Ukázkový návrh &ndash; obsah převzatý z nadaceokd.cz</span>
+</div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="text-center pb-5 mb-5">
+      <a href="index.html" id="footer-logo"><img src="img/logo.png" alt="Nadace OKD" height="54"></a>
+    </div>
+    <div class="footer-kontakty pb-5 mb-5">
+      <p>Karola &Sacute;liwky 149/17, 733 01 Karvin&aacute; &ndash; Fry&scaron;t&aacute;t</p>
+      <p><a href="mailto:info@nadaceokd.cz">info@nadaceokd.cz</a></p>
+    </div>
+    <div class="footer-menus">
+      <div>
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="nadace-okd/o-nadaci.html">Nadace OKD</a></li>
+          <li><a href="granty.html">Granty</a></li>
+          <li><a href="podporene-projekty.html">Podpo&rcaron;en&eacute; projekty</a></li>
+          <li><a href="novinky.html">Aktuality</a></li>
+          <li><a href="ke-stazeni.html">Ke sta&zcaron;en&iacute;</a></li>
+          <li><a href="kontakty.html">Kontakty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Granty</h2>
+        <ul>
+          <li><a href="granty/grantove-programy/nadace-okd-obcim.html">Nadace OKD obc&iacute;m</a></li>
+          <li><a href="granty/grantove-programy/pro-region.html">Pro region</a></li>
+          <li><a href="granty/grantove-programy/srdcovka.html">Srdcovka</a></li>
+          <li><a href="granty/jak-pozadat-o-grant.html">Jak po&zcaron;&aacute;dat o grant</a></li>
+          <li><a href="granty/zpusob-vyberu-projektu.html">Zp&uring;sob v&yacute;b&ecaron;ru projekt&uring;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Nadace</h2>
+        <ul>
+          <li><a href="nadace-okd/o-nadaci.html">O nadaci</a></li>
+          <li><a href="nadace-okd/spravni-a-dozorci-rada-nadace.html">Spr&aacute;vn&iacute; a dozor&ccaron;&iacute; rada</a></li>
+          <li><a href="nadace-okd/vyrocni-zpravy.html">V&yacute;ro&ccaron;n&iacute; zpr&aacute;vy</a></li>
+          <li><a href="nadace-okd/statut-nadace.html">Statut nadace</a></li>
+          <li><a href="nadace-okd/zrizovatele-darci-a-partneri.html">Z&rcaron;izovatel&eacute; a d&aacute;rci</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer-copy">
+      <span>&copy; Nadace OKD</span>
+      <span>Uk&aacute;zkov&yacute; n&aacute;vrh &ndash; obsah p&rcaron;evzat&yacute; z nadaceokd.cz</span>
+    </div>
   </div>
 </footer>
+
 <script>
-document.querySelector('.burger').addEventListener('click',function(){
-  document.querySelector('.nav').classList.toggle('open');
-});
+(function () {
+  var hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', function () {
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  var tog = document.getElementById('main-menu-toggler');
+  var exp = document.getElementById('expanded-menu');
+  tog.addEventListener('click', function () {
+    tog.classList.toggle('active-menu');
+    exp.classList.toggle('active-menu');
+  });
+  var slidy = document.querySelectorAll('#introCarousel .carousel-item');
+  if (slidy.length > 1) {
+    var akt = 0, timer;
+    var jdi = function (smer) {
+      slidy[akt].classList.remove('active');
+      akt = (akt + smer + slidy.length) % slidy.length;
+      slidy[akt].classList.add('active');
+    };
+    var start = function () { timer = setInterval(function () { jdi(1); }, 6000); };
+    var reset = function () { clearInterval(timer); start(); };
+    document.querySelector('.carousel-control-prev').addEventListener('click', function () { jdi(-1); reset(); });
+    document.querySelector('.carousel-control-next').addEventListener('click', function () { jdi(1); reset(); });
+    start();
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('moved-done'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.moved').forEach(function (el) { io.observe(el); });
+})();
 </script>
 </body>
 </html>
