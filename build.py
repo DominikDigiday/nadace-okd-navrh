@@ -614,7 +614,6 @@ TYM = [
         "programy": "administrátorka programů Pro region, Nadace OKD obcím",
         "email": "nemcova@nadaceokd.cz",
         "telefon": "+420 607 042 769",
-        "foto": "files/2022/ne-mcova-removebg-preview-83x123_1.png",
     },
     {
         "jmeno": "Silvie Balčíková",
@@ -623,20 +622,18 @@ TYM = [
         "Operativní fond, Krizový fond",
         "email": "balcikova@nadaceokd.cz",
         "telefon": "+420 725 389 852",
-        "foto": "files/2024/1a54725d-6031-45b7-9bed-f749e0ce9ce1-removebg-preview-90x120.png",
     },
 ]
 
 
 def kontakty():
-    """Kontakty ve stylu okd.cz: údaje + mapa, pod tím šedé karty lidí s fotkou."""
+    """Kontakty ve stylu okd.cz: údaje + mapa, pod tím šedé karty lidí."""
     socialni = " ".join(
         f'<a href="{url}" target="_blank" rel="noopener">{esc(n)}</a>'
         for n, url in SOCIALNI_SITE
     )
     karty = "\n".join(
         f"""    <div class="person-card">
-      <img class="person-photo" src="{t['foto']}" alt="{esc(t['jmeno'])}">
       <p class="person-role">{esc(t['funkce'])}</p>
       <h3>{esc(t['jmeno'])}</h3>
       <p class="person-programs">{esc(t['programy'])}</p>

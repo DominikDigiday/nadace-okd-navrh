@@ -562,14 +562,6 @@ footer .footer-kontakty p { margin-bottom: 0; }
 .social-links a { margin-right: 14px; }
 .person-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 60px; }
 .person-card { background: var(--gray); border-radius: 5px; padding: 30px 24px; }
-.person-photo {
-  width: 100px; height: 100px;
-  object-fit: cover; object-position: top;
-  background: #d9d9d9;
-  border-radius: 5px;
-  display: block;
-  margin-bottom: 18px;
-}
 .person-role { font-style: italic; margin-bottom: 10px; }
 .person-card h3 { font-size: var(--fs-body); font-weight: 700; margin: 0 0 18px; }
 .person-card h3:after { display: block; width: 70px; height: 2px; background: var(--green); content: ''; margin-top: 6px; }
