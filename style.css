@@ -615,3 +615,21 @@ table.projekty .num { text-align: right; white-space: nowrap; }
   .filtr { grid-template-columns: 1fr; }
   .filtr .filtr-hledat { grid-column: auto; }
 }
+
+/* ---------- šedá políčka s odkazy (okd.cz – Potřebuji vyřídit) ---------- */
+.link-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0 50px; }
+.link-tile {
+  background: var(--gray);
+  padding: 28px 20px;
+  text-align: center;
+  font-size: var(--fs-h4);
+  font-weight: 700;
+  color: #24692e;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease-in-out;
+}
+.link-tile:hover { background: #eeeeee; color: var(--green); }
+@media (max-width: 768px) { .link-tiles { grid-template-columns: 1fr; } }

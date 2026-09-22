@@ -940,16 +940,17 @@ def main():
     })
     zapis("granty/grantove-programy/hornicke-tradice.html", subpage(ht, 2))
 
+    # zoznam programů jako šedá políčka podle okd.cz/prace-v-okd/potrebuji-vyridit
     granty = pages.get("cs/granty.html")
     if granty:
-        granty["html"] = granty["html"].replace(
-            '<li><a href="granty/grantove-programy/srdcovka.html">Srdcovka</a></li>',
-            '<li><a href="granty/grantove-programy/srdcovka.html">Srdcovka</a></li> '
-            '<li><a href="granty/grantove-programy/hornicke-tradice.html">Hornické tradice</a></li>',
+        policka = "".join(
+            f'<a class="link-tile" href="{p["slug"]}">{esc(p["nazev"])}</a>'
+            for p in SLIDER_PROGRAMY
         )
-
-    for n in novinky:
-        zapis(n["out"], subpage(n, 1, [("Aktuality", "novinky.html")]))
+        granty["html"] = re.sub(
+            r"<ul>.*?</ul>", f'<div class="link-tiles">{policka}</div>',
+            granty["html"], count=1, flags=re.S,
+        )
 
     # ostatní obsahové stránky
     preskoc = {"novinky", "pro-media", "sitemap"}
