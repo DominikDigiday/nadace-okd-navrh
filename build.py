@@ -677,6 +677,24 @@ def rozcestnik_ke_stazeni(page):
         page["html"][:a] + f'<div class="tile-groups">{skupiny}</div>' + page["html"][b:]
     )
 
+    # tabulka souborů (Název / Publikováno / Stáhnout) -> šedá políčka
+    def soubory(m):
+        policka = []
+        for tr in TR_RE.findall(m.group(0)):
+            odkaz = re.search(r'<a href="([^"]+)"[^>]*>(.*?)</a>', tr, re.S)
+            bunky = TD_RE.findall(tr)
+            if not odkaz or len(bunky) < 2:
+                continue
+            nazev = re.sub(r"\.(pdf|zip|docx?|xlsx?)$", "", plain(odkaz.group(2)), flags=re.I)
+            policka.append(
+                f'<a class="link-tile file-tile" href="{odkaz.group(1)}">'
+                f'<span>{esc(nazev)}</span>'
+                f'<small>Publikováno {esc(plain(bunky[1]))} · Stáhnout</small></a>'
+            )
+        return f'<div class="link-tiles">{"".join(policka)}</div>' if policka else m.group(0)
+
+    page["html"] = re.sub(r"<table>.*?</table>", soubory, page["html"], flags=re.S)
+
 
 def kontakty():
     """Kontakty ve stylu okd.cz: údaje + mapa, pod tím šedé karty lidí."""

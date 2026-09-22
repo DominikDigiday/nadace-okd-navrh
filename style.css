@@ -638,4 +638,10 @@ table.projekty .num { text-align: right; white-space: nowrap; }
 .tile-group .link-tiles { margin: 20px 0 30px; }
 .tile-group .link-tile { flex: 1 1 0; min-width: 0; }
 @media (max-width: 992px) { .tile-groups { grid-template-columns: 1fr; } }
+.file-tile { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; }
+.file-tile span { text-decoration: underline; }
+.file-tile small { display: block; font-size: var(--fs-small); line-height: 1.4; font-weight: 400; color: var(--fontcolor); }
+.file-tile:hover small { color: #fff; }
 @media (max-width: 768px) { .link-tile { flex-basis: 100%; } }
+
+.file-tile { text-decoration: none; }
