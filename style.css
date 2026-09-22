@@ -632,5 +632,10 @@ table.projekty .num { text-align: right; white-space: nowrap; }
   text-decoration: underline;
   transition: color .4s, background-color .4s;
 }
-.link-tile:hover { background: #24692e; color: #fff; }
+.link-tile:hover, .link-tile.active { background: #24692e; color: #fff; }
+.tile-groups { display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 0 40px; margin-bottom: 30px; }
+.tile-group h3 { text-align: center; margin: 0; }
+.tile-group .link-tiles { margin: 20px 0 30px; }
+.tile-group .link-tile { flex: 1 1 0; min-width: 0; }
+@media (max-width: 992px) { .tile-groups { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .link-tile { flex-basis: 100%; } }

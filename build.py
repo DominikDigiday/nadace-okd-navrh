@@ -626,6 +626,58 @@ TYM = [
 ]
 
 
+# rozcestník sekce Ke stažení (na starém webu vnořený seznam na každé stránce)
+KE_STAZENI = [
+    ("Pro žadatele", [
+        ("Pro region", "ke-stazeni/pro-zadatele.html"),
+        ("Srdcovka", "ke-stazeni/pro-zadatele/srdcovka.html"),
+    ]),
+    ("Pro příjemce", [
+        ("Pro region", "ke-stazeni/pro-prijemce.html"),
+        ("Srdcovka", "ke-stazeni/pro-prijemce/srdcovka.html"),
+    ]),
+    ("Logo", [
+        ("Logo a pravidla pro práci s logem", "ke-stazeni/logo-a-manual-pro-praci-s-logem.html"),
+    ]),
+]
+
+
+def prvni_ul(fragment):
+    """Rozsah prvního <ul> včetně vnořených seznamů."""
+    start = fragment.find("<ul")
+    if start < 0:
+        return None
+    hloubka, i = 0, start
+    for m in re.finditer(r"<(/?)ul\b[^>]*>", fragment[start:]):
+        hloubka += -1 if m.group(1) else 1
+        if hloubka == 0:
+            return start, start + m.end()
+    return None
+
+
+def rozcestnik_ke_stazeni(page):
+    """Nahradí vnořený seznam odkazů šedými políčky podle okd.cz."""
+    rozsah = prvni_ul(page["html"])
+    if not rozsah:
+        return
+    aktualni = page["zdroj"][len("cs/"):]
+    up = "../" * aktualni.count("/")
+    skupiny = "".join(
+        f'<div class="tile-group"><h3>{esc(nadpis)}</h3><div class="link-tiles">'
+        + "".join(
+            f'<a class="link-tile{" active" if href == aktualni else ""}" '
+            f'href="{up}{href}">{esc(label)}</a>'
+            for label, href in odkazy
+        )
+        + "</div></div>"
+        for nadpis, odkazy in KE_STAZENI
+    )
+    a, b = rozsah
+    page["html"] = (
+        page["html"][:a] + f'<div class="tile-groups">{skupiny}</div>' + page["html"][b:]
+    )
+
+
 def kontakty():
     """Kontakty ve stylu okd.cz: údaje + mapa, pod tím šedé karty lidí."""
     socialni = " ".join(
@@ -960,6 +1012,8 @@ def main():
             continue
         rel = p["zdroj"][len("cs/"):]
         depth = rel.count("/")
+        if p["sekce"] == "ke-stazeni":
+            rozcestnik_ke_stazeni(p)
         zapis(rel, subpage(p, depth))
 
     zkopiruj_prilohy()
