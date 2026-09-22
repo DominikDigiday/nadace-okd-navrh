@@ -759,6 +759,7 @@ def kontakty():
 
 TR_RE = re.compile(r"<tr>(.*?)</tr>", re.S)
 TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.S)
+PRAVNI_FORMA = re.compile(r"\s+((?:[^\W\d_]{1,3}\.\s*)+[\"“”]?)$")
 KRAJ_RE = re.compile(r"<h2>(.*?)</h2>(.*?)(?=<h2>|$)", re.S)
 
 
@@ -772,6 +773,10 @@ def podporene_projekty(page):
             td = [plain(t) for t in TD_RE.findall(tr)]
             if len(td) == 6:
                 program, org, projekt, rok, castka, mesto = td
+                # právní formu („z. s.“, „o. p. s.“) přilepit k názvu, ať nepřetéká sama na řádek
+                org = PRAVNI_FORMA.sub(
+                    lambda m: "\u00a0" + re.sub(r"\s+", "\u00a0", m.group(1).strip()), org
+                )
                 radky.append([
                     program, org, projekt, int(rok) if rok.isdigit() else 0,
                     int(re.sub(r"\D", "", castka) or 0), mesto, kraj,

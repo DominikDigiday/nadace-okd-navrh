@@ -609,6 +609,8 @@ table.projekty { width: 100%; border-collapse: collapse; font-size: var(--fs-sma
 table.projekty th, table.projekty td { border-bottom: 1px solid #e4e4e4; padding: 10px 12px; text-align: left; vertical-align: top; }
 table.projekty th { background: var(--gray); color: #000; font-weight: 700; }
 table.projekty .num { text-align: right; white-space: nowrap; }
+/* krátké sloupce se nezalamují, místo dostanou organizace a název projektu */
+table.projekty td:nth-child(1), table.projekty td:nth-child(4), table.projekty td:nth-child(6) { white-space: nowrap; }
 @media (max-width: 992px) {
   .filtr { grid-template-columns: 1fr 1fr; }
   .filtr .filtr-hledat { grid-column: span 2; }
