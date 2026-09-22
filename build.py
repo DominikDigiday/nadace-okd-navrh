@@ -93,8 +93,7 @@ SOCIALNI_SITE = [
     ("X", "https://x.com/Nadace_OKD"),
     ("YouTube", "https://www.youtube.com/@NadaceOKD"),
 ]
-# oficiální barvy značek; ikony jsou ze Simple Icons (assets/social)
-BARVY_SITI = {"Facebook": "#0866FF", "Instagram": "#E4405F", "X": "#000000", "YouTube": "#FF0000"}
+# ikony jsou ze Simple Icons (assets/social), jednotně černé
 
 
 def socialni_ikony():
@@ -103,7 +102,7 @@ def socialni_ikony():
     for nazev, url in SOCIALNI_SITE:
         with open(os.path.join(HERE, "assets", "social", f"{nazev.lower()}.svg"), encoding="utf-8") as fh:
             svg = fh.read().replace(
-                "<svg ", f'<svg width="32" height="32" fill="{BARVY_SITI[nazev]}" aria-hidden="true" ', 1
+                "<svg ", f'<svg width="32" height="32" fill="#000000" aria-hidden="true" ', 1
             )
         svg = re.sub(r"<title>.*?</title>", "", svg)
         kusy.append(
