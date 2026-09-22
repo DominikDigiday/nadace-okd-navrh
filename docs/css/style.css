@@ -648,3 +648,12 @@ table.projekty td:nth-child(1), table.projekty td:nth-child(4), table.projekty t
 @media (max-width: 768px) { .link-tile { flex-basis: 100%; } }
 
 .file-tile { text-decoration: none; }
+
+/* úvodní obrázek vedle textu (30 / 70) */
+.media-split { display: grid; grid-template-columns: 3fr 7fr; gap: 40px; align-items: start; }
+.media-split .media-img { text-align: center; }
+.media-split .media-img img { max-height: 520px; width: auto; }
+@media (max-width: 768px) {
+  .media-split { grid-template-columns: 1fr; }
+  .media-split .media-img img { max-height: 260px; }
+}

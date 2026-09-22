@@ -586,6 +586,23 @@ def drobecky(depth, aktualni, mezi=None):
     return f'<div id="breadcrumbs">{sep.join(kusy)}</div>'
 
 
+UVODNI_OBRAZEK = re.compile(
+    r"^\s*<p>\s*(?:<strong>)?\s*(<img[^>]+>)\s*(?:</strong>)?\s*</p>(.*)$", re.S
+)
+
+
+def obrazek_vedle_textu(fragment):
+    """Stránka začínající samostatným obrázkem (tužka u Pro region, logo Srdcovky)
+    dostane obrázek vlevo a text vpravo v poměru 30 / 70."""
+    m = UVODNI_OBRAZEK.match(fragment)
+    if not m:
+        return fragment
+    return (
+        f'<div class="media-split"><div class="media-img">{m.group(1)}</div>'
+        f'<div class="media-text">{m.group(2)}</div></div>'
+    )
+
+
 def subpage(page, depth, mezi=None):
     datum = (
         f'<p class="subtitle text-center">{esc(page["datum"])}</p>'
@@ -599,7 +616,7 @@ def subpage(page, depth, mezi=None):
   <h1 class="text-center">{zeleny_zacatek(page['titul'])}</h1>
   {datum}
   <article class="mt-5">
-{page['html']}
+{obrazek_vedle_textu(page['html'])}
   </article>
 </div>
 """
