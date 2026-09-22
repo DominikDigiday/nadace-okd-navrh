@@ -616,20 +616,20 @@ table.projekty .num { text-align: right; white-space: nowrap; }
   .filtr .filtr-hledat { grid-column: auto; }
 }
 
-/* ---------- šedá políčka s odkazy (okd.cz – Potřebuji vyřídit) ---------- */
-.link-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0 50px; }
+/* ---------- šedá políčka s odkazy (okd.cz – Potřebuji vyřídit, .rozcestnik-item) ---------- */
+.link-tiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin: 40px 0 60px; }
 .link-tile {
-  background: var(--gray);
-  padding: 28px 20px;
+  flex: 0 0 calc(25% - 18px);
+  min-width: 240px;
+  background: #f8f8f8;
   text-align: center;
-  font-size: var(--fs-h4);
+  padding: 28.5px 15px;
+  font-size: 20px;
+  line-height: 25px;
   font-weight: 700;
   color: #24692e;
   text-decoration: underline;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color .2s ease-in-out;
+  transition: color .4s, background-color .4s;
 }
-.link-tile:hover { background: #eeeeee; color: var(--green); }
-@media (max-width: 768px) { .link-tiles { grid-template-columns: 1fr; } }
+.link-tile:hover { background: #24692e; color: #fff; }
+@media (max-width: 768px) { .link-tile { flex-basis: 100%; } }
