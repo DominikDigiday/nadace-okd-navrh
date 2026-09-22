@@ -650,12 +650,18 @@ table.projekty td:nth-child(1), table.projekty td:nth-child(4), table.projekty t
 .file-tile { text-decoration: none; }
 
 /* úvodní obrázek vedle textu (30 / 70) */
-/* sloupec s obrázkem je jen tak široký jako obrázek (max. 30 %), žádné prázdné místo */
-.media-split { display: grid; grid-template-columns: minmax(0, max-content) 1fr; gap: 32px; align-items: start; }
-.media-split .media-img { max-width: min(30vw, 240px); }
-.media-split .media-img img { display: block; max-height: 420px; width: auto; max-width: min(100%, 240px); }
+/* blok 30 % s obrázkem (šedé pole jako na okd.cz) a blok 70 % s textem */
+.media-split { display: grid; grid-template-columns: 30% 1fr; gap: 40px; align-items: stretch; }
+.media-split .media-img {
+  background: var(--gray);
+  border-radius: 5px;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media-split .media-img img { display: block; max-height: 460px; width: auto; max-width: 100%; mix-blend-mode: multiply; }
 @media (max-width: 768px) {
   .media-split { grid-template-columns: 1fr; }
-  .media-split .media-img { max-width: none; }
   .media-split .media-img img { max-height: 260px; margin: 0 auto; }
 }
