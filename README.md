@@ -13,6 +13,7 @@ Náhled: https://dominikdigiday.github.io/nadace-okd-navrh/
 | `extract.py` | vytěží obsah z lokálního archivu do `content.json` |
 | `build.py` | z `content.json` vygeneruje `docs/` |
 | `style.css` | zdrojový styl, build ho kopíruje do `docs/css/` |
+| `assets/logo.svg` | logo z manuálu „Práce se značkou Nadace OKD“ (šířková varianta, str. 4) |
 | `content.json` | vytěžený obsah, 652 stránek |
 
 ## Přegenerování
@@ -34,3 +35,6 @@ v `~/projects/nadaceokd-archiv`.
   verzi.
 - Sekce `pro-media` (fotogalerie se stránkováním, 609 stránek archivu) se do
   návrhu negeneruje.
+- Kontakty, Podpořené projekty (s filtrem) a program Hornické tradice generuje
+  `build.py` vlastními šablonami, ne z archivu. Čísla na úvodní stránce jsou
+  v konstantě `STATISTIKY`, náhledovou fotku aktuality lze ručně určit v `NAHLEDY`.
