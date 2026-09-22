@@ -978,6 +978,38 @@ def zkopiruj_prilohy():
             print(f"  {poc}× {cesta}")
 
 
+def orez_obrazky_vedle_textu():
+    """Obrázky ve sloupci vedle textu mají v archivu velké bílé okraje (logo
+    Srdcovky), které by dělaly prázdné místo. Ořízne je na obsah."""
+    try:
+        from PIL import Image, ImageChops
+    except ImportError:
+        return
+    img_re = re.compile(r'<div class="media-img"><img[^>]+src="([^"]+)"')
+    for koren, _, soubory in os.walk(DIST):
+        for jmeno in soubory:
+            if not jmeno.endswith(".html"):
+                continue
+            with open(os.path.join(koren, jmeno), encoding="utf-8") as fh:
+                m = img_re.search(fh.read())
+            if not m or m.group(1).startswith("http"):
+                continue
+            cesta = os.path.normpath(os.path.join(koren, unquote(m.group(1))))
+            if not os.path.isfile(cesta) or cesta.lower().endswith(".gif"):
+                continue
+            with Image.open(cesta) as im:
+                rgb = im.convert("RGB")
+                bila = Image.new("RGB", rgb.size, (255, 255, 255))
+                maska = ImageChops.difference(rgb, bila).point(lambda p: 255 if p > 18 else 0)
+                box = maska.getbbox()
+                if not box or box == (0, 0) + rgb.size:
+                    continue
+                okraj = 8
+                box = (max(box[0] - okraj, 0), max(box[1] - okraj, 0),
+                       min(box[2] + okraj, rgb.size[0]), min(box[3] + okraj, rgb.size[1]))
+                im.crop(box).save(cesta, quality=90)
+
+
 # ---------------------------------------------------------------- build
 
 
@@ -1068,6 +1100,7 @@ def main():
         zapis(rel, subpage(p, depth))
 
     zkopiruj_prilohy()
+    orez_obrazky_vedle_textu()
 
     print(f"vygenerováno stránek: {napsano}")
     print(f"novinek: {len(novinky)}")

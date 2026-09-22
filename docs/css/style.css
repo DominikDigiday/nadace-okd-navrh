@@ -650,10 +650,12 @@ table.projekty td:nth-child(1), table.projekty td:nth-child(4), table.projekty t
 .file-tile { text-decoration: none; }
 
 /* úvodní obrázek vedle textu (30 / 70) */
-.media-split { display: grid; grid-template-columns: 3fr 7fr; gap: 40px; align-items: start; }
-.media-split .media-img { text-align: center; }
-.media-split .media-img img { max-height: 520px; width: auto; }
+/* sloupec s obrázkem je jen tak široký jako obrázek (max. 30 %), žádné prázdné místo */
+.media-split { display: grid; grid-template-columns: minmax(0, max-content) 1fr; gap: 32px; align-items: start; }
+.media-split .media-img { max-width: min(30vw, 240px); }
+.media-split .media-img img { display: block; max-height: 420px; width: auto; max-width: min(100%, 240px); }
 @media (max-width: 768px) {
   .media-split { grid-template-columns: 1fr; }
-  .media-split .media-img img { max-height: 260px; }
+  .media-split .media-img { max-width: none; }
+  .media-split .media-img img { max-height: 260px; margin: 0 auto; }
 }
