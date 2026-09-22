@@ -10,13 +10,15 @@
   --green: #96bf0d;
   --gray: #f8f8f8;
   /* jednotná typografická škála pro celý web */
+  /* typografie převzatá z okd.cz (wp-content/themes/okd/style.css) */
+  --dark-green: #24692e; /* tmavá zelená z logomanuálu, na okd.cz #006131 */
   --fs-small: 14px;
   --fs-body: 16px;
-  --fs-lead: 19px;
+  --fs-lead: 18px;
   --fs-h4: 18px;
   --fs-h3: 22px;
-  --fs-h2: 32px;
-  --fs-h1: 46px;
+  --fs-h2: 40px;
+  --fs-h1: 40px;
 }
 
 * { box-sizing: border-box; }
@@ -27,7 +29,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: var(--fs-body);
-  line-height: 1.6;
+  line-height: 1.4em;
   color: var(--fontcolor);
   overflow-x: hidden;
   background: #ffffff;
@@ -53,48 +55,47 @@ a:hover { color: #000000; }
 /* ---------- typografie ---------- */
 h1, h2 {
   text-align: left;
-  margin: 0 0 19px;
-  font-weight: 400;
-  color: var(--fontcolor);
+  margin: 0 0 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark-green);
 }
-h1 { font-size: var(--fs-h1); line-height: 1.2; }
-h2 { font-size: var(--fs-h2); line-height: 1.25; }
-/* nadpisy sekcí na úvodní stránce a v přehledech */
-.section > h2.text-center, #reference h2 { font-size: var(--fs-h1); line-height: 1.2; }
-h1 em, h2 em { font-style: normal; color: var(--green); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h1 em, h2 em { font-style: normal; color: var(--dark-green); }
 
 h3 {
   font-size: var(--fs-h3);
   line-height: 1.3;
   font-weight: 500;
   margin-top: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: black;
 }
 h4 {
   font-size: var(--fs-h4);
-  font-weight: 500;
-  color: var(--green);
+  font-weight: 600;
+  color: var(--dark-green);
   margin-bottom: 10px;
-  line-height: 1.4;
+  line-height: 25px;
 }
 h5, h6 { font-size: var(--fs-body); font-weight: 700; }
 h3 strong, h4 strong { color: black; font-weight: 700; }
 .main-content h3 { margin-top: 30px; }
 
 p { margin: 0 0 20px; }
-p.large-text { font-size: var(--fs-lead); line-height: 1.55; padding-top: 10px; }
+p.large-text { font-size: var(--fs-lead); line-height: 26px; padding-top: 10px; }
 .subtitle { color: #9b9b9b; text-transform: uppercase; margin-bottom: 15px; font-size: var(--fs-small); letter-spacing: .04em; }
 .text-center { text-align: center; }
 ul { padding-left: 15px; }
 hr { opacity: 1; border: 0; border-top: 1px solid #000000; margin: 30px 0; }
 
 @media (max-width: 768px) {
-  :root { --fs-h1: 34px; --fs-h2: 26px; --fs-h3: 20px; --fs-lead: 17px; }
+  :root { --fs-h1: 30px; --fs-h2: 24px; --fs-h3: 21px; }
   h1, h2 { margin-bottom: 20px; margin-top: 20px; }
 }
 
-.large-number { font-size: 72px; line-height: 90px; color: #000000; margin: 0; }
+.large-number { font-size: 72px; line-height: 90px; color: #000000; margin: 0; font-weight: 400; }
 @media (max-width: 768px) { .large-number { font-size: 52px; line-height: 64px; } }
 
 .content { margin-bottom: 70px; }
@@ -301,15 +302,15 @@ ul.main-menu li.button a:hover { background-color: var(--fontcolor); color: whit
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.header-pages h2 { color: white; font-size: 22px; line-height: 29px; margin-bottom: 19px; }
+.header-pages h2 { color: white; font-size: 22px; line-height: 29px; margin-bottom: 19px; font-weight: 400; }
 .header-pages img { height: 60px; width: 60px; object-fit: scale-down; margin-bottom: 12px; transition: all .3s ease-in-out; }
-.header-pages p { font-size: var(--fs-body); line-height: 1.45; }
+.header-pages p { font-size: 17px; line-height: 23px; }
 .page-box {
   padding: 45px 40px 15px 40px;
   background: rgba(0, 0, 0, .5);
   transition: background-color .3s ease-in-out;
-  font-size: var(--fs-body);
-  line-height: 1.45;
+  font-size: 17px;
+  line-height: 23px;
   position: relative;
   display: block;
   height: 100%;
@@ -324,9 +325,9 @@ ul.main-menu li.button a:hover { background-color: var(--fontcolor); color: whit
 
 /* ---------- drobečková navigace ---------- */
 #breadcrumbs { margin-bottom: 25px; }
-#breadcrumbs a { font-size: var(--fs-small); font-weight: 400; text-decoration: underline; color: #7f7f7f; }
-#breadcrumbs a:hover { color: #000000; }
-#breadcrumbs span.breadcrumb_last { font-size: var(--fs-small); color: #000000; font-weight: 600; }
+#breadcrumbs a { font-size: 16px; font-weight: 400; text-decoration: underline; color: #000000; }
+#breadcrumbs a:hover { color: var(--dark-green); }
+#breadcrumbs span.breadcrumb_last { font-size: 16px; color: #000000; font-weight: 700; }
 #breadcrumbs span.breadcumb-separator { width: 30px; display: inline-block; text-align: center; color: #7f7f7f; }
 
 /* ---------- obsah ---------- */
@@ -394,7 +395,7 @@ article img { border-radius: 5px; }
 }
 .boxes.boxes-4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 1200px) { .boxes.boxes-4 { grid-template-columns: repeat(2, 1fr); } }
-.boxes .box-content h3 { color: white; font-size: var(--fs-h3); line-height: 1.3; font-weight: 400; margin-top: 0; margin-bottom: 0; }
+.boxes .box-content h3 { color: white; font-size: 20px; line-height: 29px; font-weight: 400; margin-top: 0; margin-bottom: 0; }
 .boxes .box:hover img { width: calc(100% + 40px); height: calc(100% + 40px); margin: -20px; }
 @media (max-width: 992px) { .boxes, .boxes.boxes-4 { grid-template-columns: 1fr; } }
 
@@ -470,7 +471,7 @@ footer {
   padding-top: 120px;
   color: #000000;
   position: relative;
-  font-size: var(--fs-small);
+  font-size: 16px;
 }
 footer:after {
   width: 100%;
@@ -483,9 +484,9 @@ footer:after {
 }
 footer > * { z-index: 1; position: relative; }
 footer h2 {
-  font-size: var(--fs-body);
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 21px;
   padding-bottom: 12px;
   margin-bottom: 6px;
   margin-top: 30px;
@@ -496,14 +497,14 @@ footer h2 {
 footer a { color: #000000; text-decoration: none; }
 footer a:hover { color: #000000; text-decoration: underline; }
 #footer-logo { display: inline-block; }
-footer .footer-kontakty { font-size: var(--fs-h3); display: flex; gap: 60px; justify-content: center; flex-wrap: wrap; }
+footer .footer-kontakty { font-size: 22px; display: flex; gap: 60px; justify-content: center; flex-wrap: wrap; }
 footer .footer-kontakty p { margin-bottom: 0; }
 .footer-menus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
 .footer-menus ul { list-style-type: none; margin-left: 0; padding-left: 0; margin-top: 20px; display: block; }
 .footer-menus li { padding: 0; display: block; }
-.footer-menus li a { font-size: var(--fs-small); display: block; padding: 8px 0; line-height: 19px; transition: all .3s ease-in-out; }
+.footer-menus li a { font-size: 13px; display: block; padding: 8px 0; line-height: 19px; transition: all .3s ease-in-out; }
 #footer-copy {
-  font-size: 13px;
+  font-size: 12px;
   color: #666666;
   margin-top: 90px;
   padding-top: 55px;
@@ -526,7 +527,7 @@ footer .footer-kontakty p { margin-bottom: 0; }
 /* ---------- čísla na úvodní stránce ---------- */
 .cisla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .cisla > div { background: var(--gray); border-radius: 5px; padding: 35px 20px 20px; }
-.cisla .large-number { color: var(--green); margin-bottom: 5px; }
+.cisla .large-number { margin-bottom: 5px; }
 @media (max-width: 992px) { .cisla { grid-template-columns: 1fr; } }
 
 /* ---------- aktuality: šedé čtverce podle tiskových zpráv okd.cz ---------- */
@@ -545,7 +546,7 @@ footer .footer-kontakty p { margin-bottom: 0; }
 .news-thumb img.placeholder { object-fit: contain; padding: 18% 25%; opacity: .5; }
 .news-card:hover .news-thumb img { transform: scale(1.04); }
 .news-date { margin: 0 0 6px; color: var(--fontcolor); }
-.news-card h3 { font-size: var(--fs-body); line-height: 1.35; font-weight: 700; margin: 0 0 18px; }
+.news-card h3 { font-size: 16px; line-height: 1.4em; font-weight: 700; margin: 8px 0 20px; text-decoration: underline; }
 .news-card h3 a { color: #24692e; }
 .news-card h3 a:hover { color: var(--green); }
 .news-perex { flex: 1; }
@@ -557,7 +558,7 @@ footer .footer-kontakty p { margin-bottom: 0; }
 
 /* ---------- kontakty podle okd.cz ---------- */
 .kontakt-info { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; }
-.kontakt-info h4 { margin-top: 0; }
+.kontakt-info h4 { margin-top: 0; font-weight: 700; }
 .kontakt-mapa { width: 100%; min-height: 420px; border: 0; border-radius: 5px; background: var(--gray); }
 .social-links a { margin-right: 14px; }
 .person-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 60px; }
