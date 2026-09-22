@@ -560,7 +560,7 @@ footer .footer-kontakty p { margin-bottom: 0; }
 .kontakt-info { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; }
 .kontakt-info h4 { margin-top: 0; font-weight: 700; }
 .kontakt-mapa { width: 100%; min-height: 420px; border: 0; border-radius: 5px; background: var(--gray); }
-.social-links a { margin-right: 14px; }
+.social-links { display: flex; gap: 18px; align-items: center; }
 .person-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 60px; }
 .person-card { background: var(--gray); border-radius: 5px; padding: 30px 24px; }
 .person-role { font-style: italic; margin-bottom: 10px; }
@@ -575,7 +575,8 @@ footer .footer-kontakty p { margin-bottom: 0; }
 
 /* ---------- patička: sociální sítě ---------- */
 footer .footer-social { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; font-size: var(--fs-body); }
-footer .footer-social a { text-decoration: underline; }
+.social-icon { display: inline-flex; line-height: 0; transition: transform .2s ease-in-out, opacity .2s; }
+.social-icon:hover { transform: translateY(-2px); opacity: .85; }
 
 /* ---------- podpořené projekty: filtr ---------- */
 .filtr {

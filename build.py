@@ -93,6 +93,24 @@ SOCIALNI_SITE = [
     ("X", "https://x.com/Nadace_OKD"),
     ("YouTube", "https://www.youtube.com/@NadaceOKD"),
 ]
+# oficiální barvy značek; ikony jsou ze Simple Icons (assets/social)
+BARVY_SITI = {"Facebook": "#0866FF", "Instagram": "#E4405F", "X": "#000000", "YouTube": "#FF0000"}
+
+
+def socialni_ikony():
+    """Odkazy na sociální sítě jako standardní loga (inline SVG v barvě značky)."""
+    kusy = []
+    for nazev, url in SOCIALNI_SITE:
+        with open(os.path.join(HERE, "assets", "social", f"{nazev.lower()}.svg"), encoding="utf-8") as fh:
+            svg = fh.read().replace(
+                "<svg ", f'<svg width="32" height="32" fill="{BARVY_SITI[nazev]}" aria-hidden="true" ', 1
+            )
+        svg = re.sub(r"<title>.*?</title>", "", svg)
+        kusy.append(
+            f'<a class="social-icon" href="{url}" target="_blank" rel="noopener" '
+            f'aria-label="{esc(nazev)}" title="{esc(nazev)}">{svg}</a>'
+        )
+    return "".join(kusy)
 
 # čísla schválená nadací (nadace vznikla v roce 2008)
 STATISTIKY = [
@@ -337,10 +355,7 @@ def layout(title, body, depth=0, popis="", hero=False):
         f'          <li><a href="{up}{p["slug"]}">{esc(p["nazev"])}</a></li>'
         for p in PROGRAMY
     )
-    socialni = "\n".join(
-        f'        <a href="{url}" target="_blank" rel="noopener">{esc(nazev)}</a>'
-        for nazev, url in SOCIALNI_SITE
-    )
+    socialni = socialni_ikony()
 
     return hlavicka + hero_html + f"""
 <main>
@@ -698,10 +713,7 @@ def rozcestnik_ke_stazeni(page):
 
 def kontakty():
     """Kontakty ve stylu okd.cz: údaje + mapa, pod tím šedé karty lidí."""
-    socialni = " ".join(
-        f'<a href="{url}" target="_blank" rel="noopener">{esc(n)}</a>'
-        for n, url in SOCIALNI_SITE
-    )
+    socialni = socialni_ikony()
     karty = "\n".join(
         f"""    <div class="person-card">
       <p class="person-role">{esc(t['funkce'])}</p>
