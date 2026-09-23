@@ -35,6 +35,7 @@ PROGRAMY = [
         "popis": "Granty pro neziskové organizace v Moravskoslezském kraji na "
         "sociální služby, kulturu, sport a životní prostředí.",
         "kratce": "Granty pro neziskové organizace v Moravskoslezském kraji.",
+        "hero": "Granty pro neziskové organizace<br>v&nbsp;Moravskoslezském kraji",
         "img": "program-region.jpg",
         "ikona": "ico-region.svg",
     },
@@ -44,6 +45,7 @@ PROGRAMY = [
         "popis": "Program pro zaměstnance dárců, kteří ve volném čase dělají něco "
         "prospěšného pro své okolí.",
         "kratce": "Program pro zaměstnance dárců, kteří pomáhají ve svém okolí.",
+        "hero": "Program pro zaměstnance dárců,<br>kteří pomáhají ve svém okolí",
         "img": "program-srdcovka.jpg",
         "ikona": "ico-srdcovka.svg",
     },
@@ -57,6 +59,15 @@ PROGRAMY = [
         "ikona": "ico-hornicke.svg",
     },
     {
+        "nazev": "Spolek svatá Barbora",
+        "slug": "granty/grantove-programy/spolek-svata-barbora.html",
+        "popis": "Pomoc dětem a rodinám zaměstnanců, kteří zemřeli v důsledku "
+        "práce v hornictví.",
+        "kratce": "Pomoc dětem hornických rodin, které přišly o rodiče.",
+        "img": "program-barbora.jpg",
+        "ikona": "ico-barbora.svg",
+    },
+    {
         "nazev": "Nadace OKD obcím",
         "slug": "granty/grantove-programy/nadace-okd-obcim.html",
         "popis": "Podpora obcí zasažených důlní činností. Peníze jdou na veřejná "
@@ -68,6 +79,24 @@ PROGRAMY = [
 ]
 # slider v hlavičce úvodní stránky ukazuje tři nejdůležitější programy
 SLIDER_PROGRAMY = PROGRAMY[:3]
+
+# stránka Spolku svatá Barbora na starém webu chybí, text je z „O nadaci“
+# a z webu spolku svatabarbora.cz
+BARBORA_HTML = """<h1>Spolek svatá Barbora</h1>
+<p>Od založení ctí Nadace OKD ideu pomoci dětem a rodinám zaměstnanců, kteří
+zemřeli v důsledku práce v hornictví. Spolek svatá Barbora umožňuje díky nadaci
+a dalším dárcům dětem, které tato nešťastná událost potkala, dosáhnout vzdělání
+odpovídající jejich představám, přáním a předpokladům, aby se mohly v budoucnu
+zařadit do aktivního pracovního procesu.</p>
+<p>Kromě podpory vzdělávání je spolek rodinám oporou i při řešení dalších
+problémů a životních situací, navíc pořádá řadu oblíbených akcí a setkání.</p>
+<p>Spolek vznikl 24. června 2004. Za více než 20 let činnosti pomohl více než
+100 sirotkům částkou přesahující 40 milionů korun.</p>
+<p><strong>Spolek svatá Barbora</strong><br>
+Stonava 1077, 735 34 Stonava<br>
+<a href="mailto:spolek.barbora@seznam.cz">spolek.barbora@seznam.cz</a>, +420 725 756 830</p>
+<p><a class="btn btn-primary" href="https://www.svatabarbora.cz/" target="_blank" rel="noopener">Web spolku svatabarbora.cz</a></p>
+"""
 
 # stránka programu Hornické tradice na starém webu chybí, text je z „O nadaci“
 HORNICKE_TRADICE_HTML = """<h1>Hornické tradice</h1>
@@ -83,10 +112,22 @@ seniorů a příznivců hornictví.</p>
 <p><a href="../../podporene-projekty.html?program=Hornick%C3%A9%20tradice">Projekty
 podpořené v programu Hornické tradice</a></p>
 <p>Administrátorka programu: Silvie Balčíková,
-<a href="mailto:balcikova@nadaceokd.cz">balcikova@nadaceokd.cz</a>, +420 725 389 852</p>
+<a href="mailto:balcikova@nadaceokd.com">balcikova@nadaceokd.com</a>, +420 725 389 852</p>
 """
 
 EMAIL = "nadaceokd@gmail.com"
+IKONA_ADRESA = (
+    '<svg class="kontakt-ikona" viewBox="0 0 24 24" width="26" height="26" fill="none" '
+    'stroke="#96bf0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+    'aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/>'
+    '<circle cx="12" cy="10" r="2.6"/></svg>'
+)
+IKONA_EMAIL = (
+    '<svg class="kontakt-ikona" viewBox="0 0 24 24" width="26" height="26" fill="none" '
+    'stroke="#96bf0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+    'aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/>'
+    '<path d="m3.5 6.5 8.5 7 8.5-7"/></svg>'
+)
 SOCIALNI_SITE = [
     ("Facebook", "https://www.facebook.com/NadaceOKD"),
     ("Instagram", "https://www.instagram.com/nadaceokd/"),
@@ -178,6 +219,12 @@ IKONY = {
         "stroke='#96bf0d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>"
         "<path d='M12 54 44 22'/><path d='M36 12l18 18' stroke-width='7'/>"
         "<path d='M52 54 20 22'/><path d='M8 26C14 16 20 12 28 10' stroke-width='5'/></svg>"
+    ),
+    "ico-barbora.svg": (
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' "
+        "stroke='#96bf0d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>"
+        "<path d='M6 30 32 10l26 20'/><path d='M12 26v28h40V26'/>"
+        "<path d='M32 48s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z'/></svg>"
     ),
     "ico-srdcovka.svg": (
         "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' "
@@ -287,7 +334,7 @@ def layout(title, body, depth=0, popis="", hero=False):
         f"""      <a class="page-box" href="{up}{p['slug']}">
         <img src="{up}img/{p['ikona']}" alt="{esc(p['nazev'])}">
         <h2>{esc(p['nazev'])}</h2>
-        <p>{esc(p['kratce'])}</p>
+        <p>{p.get('hero') or esc(p['kratce'])}</p>
       </a>"""
         for p in SLIDER_PROGRAMY
     )
@@ -373,8 +420,8 @@ def layout(title, body, depth=0, popis="", hero=False):
       <a href="{up}index.html" id="footer-logo"><img src="{up}img/logo.svg" alt="Nadace OKD" height="80"></a>
     </div>
     <div class="footer-kontakty pb-5 mb-5">
-      <p>Karola &Sacute;liwky 149/17, 733 01 Karvin&aacute; &ndash; Fry&scaron;t&aacute;t</p>
-      <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <p>{IKONA_ADRESA}Karola &Sacute;liwky 149/17, 733 01 Karvin&aacute; &ndash; Fry&scaron;t&aacute;t</p>
+      <p>{IKONA_EMAIL}<a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
     <div class="footer-social pb-5 mb-5">
 {socialni}
@@ -492,8 +539,9 @@ def karta_novinky(n, up=""):
 
 def homepage(pages, novinky):
     o_nadaci = pages.get("cs/nadace-okd/o-nadaci.html")
-    lead = plain(o_nadaci["html"], 260) if o_nadaci else ""
-    lead = re.sub(r"^(O nadaci )?(Nadace OKD )(?=Nadace OKD)", "", lead)
+    # první skutečný odstavec „O nadaci“ celý (dřív se useknul na 260 znacích)
+    odstavce = [plain(x) for x in re.findall(r"<p>(.*?)</p>", o_nadaci["html"], re.S)] if o_nadaci else []
+    lead = next((o for o in odstavce if len(o) > 100), "")
 
     komu = "\n".join(
         f"""        <div class="box-content">
@@ -537,7 +585,7 @@ def homepage(pages, novinky):
 <div class="section moved">
   <p class="subtitle text-center">Granty</p>
   <h2 class="text-center">Na&scaron;e grantov&eacute; <em>programy</em></h2>
-  <div class="boxes boxes-4 mt-5">
+  <div class="boxes boxes-5 mt-5">
 {programy}
   </div>
   <div class="text-center mt-5">
@@ -554,7 +602,7 @@ def homepage(pages, novinky):
 </div>
 """,
         0,
-        lead[:150],
+        plain(lead, 150),
         hero=True,
     ).replace(
         "</main>",
@@ -623,17 +671,36 @@ def subpage(page, depth, mezi=None):
     return layout(page["titul"], body, depth, plain(page["html"], 150))
 
 
+NOVINEK_NA_STRANKU = 24
+
+
 def news_index(novinky, depth=0):
-    karty = "\n".join(karta_novinky(n) for n in novinky)
+    karty = "\n".join(
+        karta_novinky(n).replace('class="news-card"', 'class="news-card skryta"', 1)
+        if i >= NOVINEK_NA_STRANKU else karta_novinky(n)
+        for i, n in enumerate(novinky)
+    )
     body = f"""
 {drobecky(depth, 'Aktuality')}
 <div class="section moved">
   <p class="subtitle text-center">Nadace OKD</p>
   <h1 class="text-center"><em>Aktuality</em></h1>
-  <div class="news-grid mt-5">
+  <div class="news-grid mt-5" id="novinky">
 {karty}
   </div>
+  <div class="text-center mt-5"><button class="btn btn-primary" id="dalsi-novinky" type="button">Zobrazit další aktuality</button></div>
 </div>
+<script>
+(function () {{
+  var btn = document.getElementById('dalsi-novinky');
+  var zbyva = function () {{ return document.querySelectorAll('#novinky .news-card.skryta'); }};
+  btn.addEventListener('click', function () {{
+    Array.prototype.slice.call(zbyva(), 0, {NOVINEK_NA_STRANKU}).forEach(function (k) {{ k.classList.remove('skryta'); }});
+    if (!zbyva().length) btn.style.display = 'none';
+  }});
+  if (!zbyva().length) btn.style.display = 'none';
+}})();
+</script>
 """
     return layout("Aktuality", body, depth)
 
@@ -643,7 +710,7 @@ TYM = [
         "jmeno": "Monika Němcová",
         "funkce": "ředitelka",
         "programy": "administrátorka programů Pro region, Nadace OKD obcím",
-        "email": "nemcova@nadaceokd.cz",
+        "email": "nemcova@nadaceokd.com",
         "telefon": "+420 607 042 769",
     },
     {
@@ -651,7 +718,7 @@ TYM = [
         "funkce": "projektová manažerka",
         "programy": "administrátorka programů Srdcovka, Pro region, Hornické tradice, "
         "Operativní fond, Krizový fond",
-        "email": "balcikova@nadaceokd.cz",
+        "email": "balcikova@nadaceokd.com",
         "telefon": "+420 725 389 852",
     },
 ]
@@ -879,6 +946,174 @@ def podporene_projekty(page):
     return layout("Podpořené projekty", body, 0, "Databáze projektů podpořených Nadací OKD")
 
 
+# ---------------------------------------------------------------- úpravy stránek
+
+
+def ikonove_karty(polozky, up=""):
+    """Karty s piktogramem jako boxy „Pomáháme tam, kde se těžilo uhlí“.
+    polozky: (href, ikona, nazev, text, odkaz_text)"""
+    karty = "".join(
+        f'<a class="icon-card" href="{href}"{' target="_blank" rel="noopener"' if href.endswith(".pdf") else ""}>'
+        f'<img src="{up}img/{ikona}" alt="">'
+        f"<h3>{esc(nazev)}</h3><p>{esc(text)}</p>"
+        f'<span class="icon-card-more">{esc(odkaz)}</span></a>'
+        for href, ikona, nazev, text, odkaz in polozky
+    )
+    return f'<div class="icon-cards">{karty}</div>'
+
+
+def uprav_granty(page):
+    """Menší úvodní věta a všechny programy jako karty s piktogramy."""
+    page["html"] = page["html"].replace(
+        "<h2>Nadace OKD realizuje grantové programy:</h2>",
+        '<p class="large-text text-center">Nadace OKD realizuje grantové programy:</p>',
+    )
+    karty = ikonove_karty(
+        [(p["slug"], p["ikona"], p["nazev"], p["kratce"], "Zjistit více") for p in PROGRAMY]
+    )
+    page["html"] = re.sub(r"<ul>.*?</ul>", karty, page["html"], count=1, flags=re.S)
+
+
+def uprav_jak_pozadat(page):
+    """Tabulka s výzvami -> karty s piktogramy programů."""
+    def karty(m):
+        polozky = []
+        for href, text in re.findall(r'<a href="([^"]+)"[^>]*>(.*?)</a>', m.group(0), re.S):
+            nazev = plain(text)
+            program = next((p for p in PROGRAMY if p["nazev"] == nazev), None)
+            rok = re.search(r"20\d\d", href.rsplit("/", 1)[-1])  # rok z názvu souboru, ne ze složky
+            polozky.append((
+                href, program["ikona"] if program else "ico-region.svg", nazev,
+                f"Výzva programu pro rok {rok.group(0)}" if rok else "Výzva programu",
+                "Stáhnout výzvu (PDF)",
+            ))
+        return ikonove_karty(polozky, "../") if polozky else m.group(0)
+
+    page["html"] = re.sub(
+        r"(?<=Výzvy jednotlivých grantových programů:</strong></p>)\s*<table>.*?</table>",
+        karty, page["html"], count=1, flags=re.S,
+    )
+
+
+def uprav_rady(page):
+    """Správní a dozorčí rada jako karty podle okd.cz/o-nas/organy-spolecnosti."""
+    src = page["html"]
+    konec = src.rsplit("</table>", 1)
+    skupiny, osoba = [], None
+    for kus in re.split(r"(<h3>.*?</h3>|<img[^>]+>)", konec[0], flags=re.S):
+        if kus.startswith("<h3>"):
+            skupiny.append((plain(kus), []))
+        elif kus.startswith("<img"):
+            osoba = kus
+        elif osoba and skupiny:
+            jmeno = re.search(r"<strong>(.*?)</strong>", kus, re.S)
+            if not jmeno:
+                continue
+            funkce = plain(kus).replace(plain(jmeno.group(1)), "", 1).strip()
+            foto = re.search(r'src="([^"]+)"', osoba).group(1)
+            skupiny[-1][1].append((plain(jmeno.group(1)), funkce[:1].lower() + funkce[1:], foto))
+            osoba = None
+    html_ = ""
+    for nazev, lide in skupiny:
+        karty = "".join(
+            f'<div class="organ-item"><figure><img src="{foto}" alt="{esc(jm)}"></figure>'
+            f'<p class="organ-pozice"><em>{esc(fce)}</em></p><h3>{esc(jm)}</h3></div>'
+            for jm, fce, foto in lide
+        )
+        html_ += f'<h2 class="text-center">{esc(nazev)}</h2><div class="organ-grid">{karty}</div>'
+    page["html"] = html_ + (konec[1] if len(konec) > 1 else "")
+
+
+# výroční zpráva 2020 na starém webu omylem odkazovala na PDF za rok 2021
+VZ_OPRAVY = {"2020": "../../files/2021/Vyrocni-zprava-2020-final-s-podpisem_1.pdf"}
+
+
+def uprav_vyrocni_zpravy(page):
+    """Výroční zprávy jako karty podle okd.cz/o-nas/vyrocni-zpravy, vždy s titulní
+    stranou (assets/vz, vyrenderovaná z první strany PDF)."""
+    karty = []
+    for td in TD_RE.findall(page["html"]):
+        rok = re.search(r"Výroční zpráva\s*(\d{4})", plain(td))
+        pdf = re.search(r'href="([^"]+\.pdf)"', td)
+        if not (rok and pdf):
+            continue
+        r = rok.group(1)
+        href = VZ_OPRAVY.get(r, pdf.group(1))
+        obal = f"../img/vz/vz-{r}.jpg"
+        karty.append(
+            f'<div class="organ-item organ-item--hover vz-item">'
+            f'<figure><img src="{obal}" alt="Titulní strana výroční zprávy {r}" loading="lazy"></figure>'
+            f"<h3>Výroční zpráva {r}</h3>"
+            f'<p class="organ-more">Zjistit více</p>'
+            f'<a class="absolute-anchor" href="{href}" target="_blank" rel="noopener" '
+            f'aria-label="Výroční zpráva {r} (PDF)"></a></div>'
+        )
+    page["html"] = f'<div class="organ-grid vz-grid">{"".join(karty)}</div>'
+
+
+LOGA = {
+    "zrizovatel": [("OKD, a.s.", "https://www.okd.cz/", "../../files/images_raw/logo_okd_2008_on.gif")],
+    "darci": [
+        ("Green Gas DPB, a.s.", "https://www.dpb.cz/", "../../files/images_raw/greengas.gif"),
+        ("Prisko a.s.", "https://www.prisko.cz/", "../../files/Prisko-167x40.jpg"),
+    ],
+    # Česká spořitelna a Cyber Fox na přání nadace vypadly
+    "partneri": [
+        ("Horník", "https://www.okd.cz/tiskove-zpravy-a-aktuality/hornik/",
+         "../../files/09ho19-WEB-1-page-0001-228x40.jpg"),
+        ("Statutární město Karviná", "https://www.karvina.cz/",
+         "../../files/2018/partneri-a-darci/1175-115x80_1.jpg"),
+        ("Nadace Partnerství", "https://www.nadacepartnerstvi.cz/",
+         "../../files/images_raw/partneri_logo_partnerstvi_on_2.gif"),
+    ],
+}
+
+
+def uprav_zrizovatele(page):
+    """Loga jako odkazy, bez loga OKD v textu a bez ČS a Cyber Foxu."""
+    h = re.sub(r'^\s*<a href="http://www.okd.cz/"><img[^>]+></a>', "", page["html"])
+    text = h.split("<h2><strong>ZŘIZOVATEL", 1)[0]
+    partneri_text = re.search(r"<p>V jednotě je síla.*?</p>", h, re.S)
+
+    def loga(klic):
+        return '<div class="logo-grid">' + "".join(
+            f'<a class="logo-tile" href="{url}" target="_blank" rel="noopener" title="{esc(n)}">'
+            f'<img src="{src}" alt="{esc(n)}"></a>'
+            for n, url, src in LOGA[klic]
+        ) + "</div>"
+
+    page["html"] = (
+        f"<p>{text.strip()}</p>"
+        f"<h2>Zřizovatel</h2>{loga('zrizovatel')}"
+        f"<h2>Dárci</h2>{loga('darci')}"
+        f"<h2>Partneři</h2>{partneri_text.group(0) if partneri_text else ''}{loga('partneri')}"
+    )
+
+
+def uprav_stranky(pages):
+    for p in pages.values():
+        # osobní adresy pracovníků přešly z .cz na .com; aktuality zůstávají
+        # v původním znění (článek o nefunkčních e-mailech by jinak ztratil smysl)
+        if p["sekce"] != "novinky":
+            p["html"] = re.sub(r"\b([\w.-]+)@nadaceokd\.cz\b", r"\1@nadaceokd.com", p["html"])
+    for zdroj in ("cs/nadace-okd.html", "cs/nadace-okd/o-nadaci.html"):
+        # nadpis „Nadace OKD“ byl v textu podruhé jako samostatný odstavec
+        if zdroj in pages:
+            pages[zdroj]["html"] = re.sub(r"^\s*<p>Nadace OKD</p>", "", pages[zdroj]["html"])
+    statut = pages.get("cs/nadace-okd/statut-nadace.html")
+    if statut:
+        statut["html"] = re.sub(r"<img[^>]*homepage\.gif[^>]*>", "", statut["html"])
+    for zdroj, fce in (
+        ("cs/granty.html", uprav_granty),
+        ("cs/granty/jak-pozadat-o-grant.html", uprav_jak_pozadat),
+        ("cs/nadace-okd/spravni-a-dozorci-rada-nadace.html", uprav_rady),
+        ("cs/nadace-okd/vyrocni-zpravy.html", uprav_vyrocni_zpravy),
+        ("cs/nadace-okd/zrizovatele-darci-a-partneri.html", uprav_zrizovatele),
+    ):
+        if zdroj in pages:
+            fce(pages[zdroj])
+
+
 # ---------------------------------------------------------------- přílohy
 
 
@@ -916,11 +1151,15 @@ def zmensi(cesta, max_sirka=MAX_SIRKA):
         with Image.open(cesta) as im:
             if im.width <= max_sirka:
                 return
-            novy = im.convert("RGB") if im.mode in ("P", "RGBA") else im
+            png = cesta.lower().endswith(".png")
+            novy = im if png else (im.convert("RGB") if im.mode in ("P", "RGBA") else im)
             novy = novy.resize(
                 (max_sirka, round(im.height * max_sirka / im.width)), Image.LANCZOS
             )
-            novy.save(cesta, quality=82, optimize=True)
+            if png:
+                novy.save(cesta, optimize=True)
+            else:
+                novy.save(cesta, quality=80, optimize=True)
     except Exception as e:  # poškozený soubor v archivu build nepoloží
         print(f"  nešlo zmenšit {os.path.basename(cesta)}: {e}")
 
@@ -965,8 +1204,9 @@ def zkopiruj_prilohy():
         full = os.path.join(DIST, cil)
         os.makedirs(os.path.dirname(full), exist_ok=True)
         shutil.copy(zdroj, full)
-        if os.path.splitext(cil)[1].lower() in (".jpg", ".jpeg"):
-            zmensi(full)
+        if os.path.splitext(cil)[1].lower() in (".jpg", ".jpeg", ".png"):
+            # fotky z aktualit (lightbox) stačí menší, jinak by web měl stovky MB
+            zmensi(full, 1400)
 
     velikost = sum(os.path.getsize(os.path.join(DIST, c)) for c in prenesene)
     print(f"obrázků přeneseno: {len(prenesene)} ({velikost / 1_048_576:.1f} MB)")
@@ -1019,6 +1259,7 @@ def main():
     for p in data:
         priprav(p)
     pages = {p["zdroj"]: p for p in data}
+    uprav_stranky(pages)
 
     if os.path.isdir(DIST):
         shutil.rmtree(DIST)
@@ -1042,6 +1283,8 @@ def main():
     shutil.copy(os.path.join(HERE, "style.css"), os.path.join(DIST, "css", "style.css"))
 
     shutil.copy(os.path.join(HERE, "assets", "logo.svg"), os.path.join(DIST, "img", "logo.svg"))
+    shutil.copy(os.path.join(HERE, "assets", "program-barbora.jpg"), os.path.join(DIST, "img", "program-barbora.jpg"))
+    shutil.copytree(os.path.join(HERE, "assets", "vz"), os.path.join(DIST, "img", "vz"))
 
     # novinky
     novinky = [
@@ -1066,6 +1309,8 @@ def main():
 
     zapis("index.html", homepage(pages, novinky))
     zapis("novinky.html", news_index(novinky))
+    for n in novinky:
+        zapis(n["out"], subpage(n, 1, [("Aktuality", "novinky.html")]))
     zapis("kontakty.html", kontakty())
     zapis("podporene-projekty.html", podporene_projekty(pages["cs/podporene-projekty.html"]))
 
@@ -1075,17 +1320,11 @@ def main():
     })
     zapis("granty/grantove-programy/hornicke-tradice.html", subpage(ht, 2))
 
-    # zoznam programů jako šedá políčka podle okd.cz/prace-v-okd/potrebuji-vyridit
-    granty = pages.get("cs/granty.html")
-    if granty:
-        policka = "".join(
-            f'<a class="link-tile" href="{p["slug"]}">{esc(p["nazev"])}</a>'
-            for p in SLIDER_PROGRAMY
-        )
-        granty["html"] = re.sub(
-            r"<ul>.*?</ul>", f'<div class="link-tiles">{policka}</div>',
-            granty["html"], count=1, flags=re.S,
-        )
+    sb = priprav({
+        "zdroj": "cs/granty/grantove-programy/spolek-svata-barbora.html",
+        "sekce": "granty", "nadpis": "Granty", "html": BARBORA_HTML,
+    })
+    zapis("granty/grantove-programy/spolek-svata-barbora.html", subpage(sb, 2))
 
     # ostatní obsahové stránky
     preskoc = {"novinky", "pro-media", "sitemap"}

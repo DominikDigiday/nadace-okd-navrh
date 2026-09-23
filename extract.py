@@ -62,8 +62,8 @@ def clean(fragment):
     return f.strip()
 
 
-def parse(path):
-    rel = os.path.relpath(path, ARCHIV).replace(os.sep, "/")
+def parse(path, rel=None):
+    rel = rel or os.path.relpath(path, ARCHIV).replace(os.sep, "/")
     with open(path, encoding="utf-8", errors="replace") as fh:
         raw = fh.read()
 
@@ -85,7 +85,11 @@ def parse(path):
 
     # datum u novinek
     date = ""
-    d = re.search(r"(\d{1,2})\.\s?(\d{1,2})\.\s?(20\d{2})", (head_div or "") + body[:400])
+    nd = re.search(r'class="news-date">([^<]*)<', raw)
+    d = re.search(
+        r"(\d{1,2})\.\s?(\d{1,2})\.\s?(20\d{2})",
+        (nd.group(1) if nd else "") + (head_div or "") + body[:400],
+    )
     if d:
         date = f"{int(d.group(1))}. {int(d.group(2))}. {d.group(3)}"
 
@@ -107,16 +111,28 @@ def parse(path):
 
 def main():
     pages = []
+    videne = set()
     for dirpath, _d, filenames in os.walk(ARCHIV):
-        for fn in filenames:
-            if not fn.endswith(".html") or fn.endswith(".orig") or "?" in fn:
+        # soubory bez „?“ napřed, ať má čistá kopie přednost před stránkovanou
+        for fn in sorted(filenames, key=lambda f: ("?" in f, f)):
+            if not fn.endswith(".html") or fn.endswith(".orig"):
                 continue
             full = os.path.join(dirpath, fn)
             rel = os.path.relpath(full, ARCHIV)
             if not (rel == "cs.html" or rel.startswith("cs" + os.sep)):
                 continue
+            if "?" in fn:
+                # aktualita stažená jen přes stránkování výpisu
+                # (clanek?FfNewsItem_page=N.html), jinak se stránkované kopie přeskočí
+                if os.path.basename(dirpath) != "novinky":
+                    continue
+                rel = os.path.join(os.path.dirname(rel), fn.split("?")[0] + ".html")
+            rel = rel.replace(os.sep, "/")
+            if rel in videne:
+                continue
+            videne.add(rel)
             try:
-                pages.append(parse(full))
+                pages.append(parse(full, rel))
             except Exception as exc:  # noqa: BLE001
                 print(f"  chyba {rel}: {exc}")
 

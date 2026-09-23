@@ -665,3 +665,65 @@ table.projekty td:nth-child(1), table.projekty td:nth-child(4), table.projekty t
   .media-split { grid-template-columns: 1fr; }
   .media-split .media-img img { max-height: 260px; margin: 0 auto; }
 }
+
+/* ---------- karty s piktogramy (granty, výzvy) podle boxů „Pomáháme“ ---------- */
+.icon-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 22px; margin: 40px 0 60px; }
+.icon-cards:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; }
+.icon-card {
+  background: var(--gray);
+  border-radius: 5px;
+  padding: 36px 26px 30px;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+.icon-card img { width: 56px; height: 56px; object-fit: scale-down; margin-bottom: 18px; transition: filter .3s ease-in-out; }
+.icon-card h3 { font-size: 20px; font-weight: 700; color: #000; margin: 0 0 10px; }
+.icon-card p { flex: 1; margin-bottom: 16px; color: var(--fontcolor); }
+.icon-card-more { color: var(--dark-green); text-decoration: underline; font-weight: 500; }
+.icon-card:hover { background: var(--green); }
+.icon-card:hover img { filter: brightness(0) invert(1); }
+.icon-card:hover h3, .icon-card:hover p, .icon-card:hover .icon-card-more { color: #fff; }
+
+/* ---------- orgány a výroční zprávy podle okd.cz (.organ-item) ---------- */
+.organ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 63px; margin: 30px 0 60px; }
+.organ-item { background: var(--gray); border-radius: 10px; padding: 50px 24px 44px; position: relative; }
+.organ-item figure { margin: 0 0 10px; text-align: left; }
+.organ-item img { border-radius: 10px; height: 120px; width: auto; }
+.organ-pozice { margin-bottom: 10px; color: #000; }
+.organ-item h3 { margin: 0 0 18px; padding-bottom: 8px; font-size: 16px; font-weight: 700; color: #000; position: relative; }
+.organ-item h3:after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 72px; background: var(--dark-green); }
+.organ-item--hover { transition: box-shadow .4s; }
+.organ-item--hover:hover { box-shadow: 0 0 14px -4px rgba(0, 0, 0, .66); }
+.organ-more { color: var(--dark-green); text-decoration: underline; margin: 0; }
+.absolute-anchor { position: absolute; inset: 0; z-index: 2; }
+.vz-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.vz-item { padding: 24px 24px 30px; }
+.vz-item figure { text-align: center; margin-bottom: 20px; }
+.vz-item img { height: 260px; width: auto; max-width: 100%; object-fit: contain; border-radius: 3px; box-shadow: 0 2px 10px rgba(0, 0, 0, .15); }
+@media (max-width: 1200px) { .vz-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 992px) { .organ-grid, .vz-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+@media (max-width: 560px) { .organ-grid, .vz-grid { grid-template-columns: 1fr; } }
+
+/* ---------- loga zřizovatele, dárců a partnerů (klikací) ---------- */
+.logo-grid { display: flex; flex-wrap: wrap; gap: 22px; margin: 20px 0 40px; }
+.logo-tile { background: var(--gray); border-radius: 5px; padding: 24px 30px; min-width: 220px; min-height: 120px; display: flex; align-items: center; justify-content: center; transition: box-shadow .3s; }
+.logo-tile:hover { box-shadow: 0 0 14px -4px rgba(0, 0, 0, .5); }
+.logo-tile img { max-height: 80px; width: auto; border-radius: 0; mix-blend-mode: multiply; }
+
+/* ---------- úvodní stránka: 5 programů ---------- */
+.boxes.boxes-5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1200px) { .boxes.boxes-5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 992px) { .boxes.boxes-5 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .boxes.boxes-5 { grid-template-columns: 1fr; } }
+
+/* ---------- patička: piktogramy u adresy a e-mailu ---------- */
+footer .footer-kontakty p { display: inline-flex; align-items: center; gap: 12px; }
+.kontakt-ikona { flex: none; }
+
+/* ---------- aktuality po stránkách ---------- */
+.news-card.skryta { display: none; }
