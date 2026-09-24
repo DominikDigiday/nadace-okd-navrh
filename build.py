@@ -803,7 +803,6 @@ def kontakty():
       <h3>{esc(t['jmeno'])}</h3>
       <p class="person-programs">{esc(t['programy'])}</p>
       <p>E-mail: <a href="mailto:{t['email']}">{t['email']}</a><br>
-      E-mail: <a href="mailto:{EMAIL}">{EMAIL}</a><br>
       Telefon: {esc(t['telefon'])}</p>
     </div>"""
         for t in TYM
@@ -1303,6 +1302,8 @@ def main():
         os.makedirs(os.path.dirname(full), exist_ok=True)
         # starý obecný e-mail už nadace nepoužívá
         text = text.replace("info@nadaceokd.cz", EMAIL)
+        # překlep v odkazu na živém webu (aktualita „Máme nové emaily!“)
+        text = text.replace("mailto:balcikova@nadace.com", "mailto:balcikova@nadaceokd.com")
         with open(full, "w", encoding="utf-8") as fh:
             fh.write(text)
         napsano += 1
